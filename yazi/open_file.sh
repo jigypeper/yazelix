@@ -7,7 +7,7 @@ zellij action focus-next-pane
 RUNNING_COMMAND=$(zellij action list-clients | awk 'NR==2 {print $3}')
 
 # Check if the command running in the current pane is helix (hx)
-if echo "$RUNNING_COMMAND" | grep -q "/hx$"; then
+if echo "$RUNNING_COMMAND" | grep -q "hx$"; then
     # The current pane is running helix, use zellij actions to open the file
     zellij action write 27
     zellij action write-chars ":open \"$1\""

@@ -10,12 +10,12 @@ export def is_hx_running [list_clients_output: string] {
     let parts = $cmd | split row " "
     
     # Check if any part ends with 'hx' or is 'hx'
-    let has_hx = ($parts | any {|part| $part | str ends-with "/hx"})
-    let is_hx = ($parts | any {|part| $part == "hx"})
+    let has_hx = ($parts | any {|part| $part | str ends-with "/helix"})
+    let is_hx = ($parts | any {|part| $part == "helix"})
     let has_or_is_hx = $has_hx or $is_hx
     
     # Find the position of 'hx' in the parts
-    let hx_positions = ($parts | enumerate | where {|x| ($x.item == "hx" or ($x.item | str ends-with "/hx"))} | get index)
+    let hx_positions = ($parts | enumerate | where {|x| ($x.item == "helix" or ($x.item | str ends-with "/helix"))} | get index)
     
     # Check if 'hx' is the first part or right after a path
     let is_hx_at_start = if ($hx_positions | is-empty) {

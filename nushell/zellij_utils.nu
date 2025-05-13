@@ -103,7 +103,7 @@ export def open_new_helix_pane [file_path: path, yazi_id: string] {
     let tab_name = get_tab_name $working_dir
     log_to_file "open_helix.log" $"Calculated tab_name: ($tab_name)"
     
-    let cmd = $"env YAZI_ID=($yazi_id) hx '($file_path)'"
+    let cmd = $"env YAZI_ID=($yazi_id) helix '($file_path)'"
     
     try {
         log_to_file "open_helix.log" $"Preparing command: nu -c \"($cmd)\""
